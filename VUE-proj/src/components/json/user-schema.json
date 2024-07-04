@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+      "username": {
+        "description": "Уникальный никнейм пользователя",
+        "type": "string"
+      },
+      "email": {
+        "description": "Почта пользователя",
+        "type": "string",
+        "format": "email"
+      },
+      "password": {
+        "description": "Пароль",
+        "type": "string",
+        "minLength": 8,
+        "maxLength": 20
+      },
+      "status":  { 
+        "description": "Роль пользователя - студент или преподаватель",
+        "enum": ["Студент", "Преподаватель"] 
+      },
+      "first_name": {
+        "description": "Имя",
+        "type": "string"
+      },
+      "last_name": {
+        "description": "Фамилия",
+        "type": "string"
+      },
+      "patronymic": {
+        "description": "Отчество",
+        "type": "string"
+      },
+      "telephone": {
+        "description": "Номер телефона",
+        "type": "string"
+      }
+    },
+    "required": ["username", "email", "password", "status", "first_name", 
+  "last_name"]
+  }

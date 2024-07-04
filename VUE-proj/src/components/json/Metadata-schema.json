@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "author": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "created": {
+        "type": "string",
+        "pattern": "[0-9][0-9].[0-9][0-9].[0-9][0-9][0-9][0-9]"
+      },
+      "status": {
+          "enum": ["Создан", "В разработке"] 
+      }
+    },
+    "required": ["id", "name", "author", "description", "created", "status"]
+
+  }

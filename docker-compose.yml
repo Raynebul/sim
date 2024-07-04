@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  simbuilder:
+    build: 
+      context: VUE-proj/
+      network: host
+    restart: always
+    ports:
+      - 5173:5173
+      - 3000:3000
+        # mem_limit: 4G
+    deploy:
+      resources:
+        limits:
+          memory: 1G

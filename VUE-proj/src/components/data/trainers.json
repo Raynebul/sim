@@ -1,0 +1,2138 @@
+[
+  {
+    "IDtext": "tm",
+    "name": "Машина Тьюринга",
+    "dataUI": {
+      "id": "tm",
+      "name": "Машина Тьюринга",
+      "inputs": [
+        {
+          "name": "currentIndex",
+          "value": 6,
+          "originalValue": "6",
+          "type": "число"
+        },
+        {
+          "name": "isEnded",
+          "value": "false",
+          "originalValue": "false",
+          "type": "boolean"
+        },
+        { "name": "count", "value": 0, "originalValue": "0", "type": "число" },
+        {
+          "name": "currentState",
+          "value": 1,
+          "originalValue": "1",
+          "type": "число"
+        },
+        {
+          "name": "remember",
+          "originalValue": "",
+          "value": "",
+          "type": "текст"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "lenta",
+          "control": "block1",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "currentIndex",
+          "control": "currentIndex",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "stateName",
+          "control": "card1",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "currentState",
+          "control": "currentState",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "isEnded",
+          "control": "isEnded",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "count",
+          "control": "count",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "remember",
+          "control": "remember",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+        "roundSystem": false,
+        "rounds": []
+      },
+      "UIinputs": [
+        { "name": "tm", "control": "textarea1" },
+        { "name": "lenta", "control": "block1" },
+        { "name": "firstState", "control": "textarea2" }
+      ],
+      "structure": [
+        {
+          "id": 3,
+          "type": "button",
+          "attributes": {
+            "name": "Шаг",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary", "rounded-0", "rounded-start"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "button",
+          "attributes": {
+            "name": "Clear",
+            "functionNumber": "clear",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 150,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary", "rounded-0"]
+          }
+        },
+        {
+          "id": 5,
+          "type": "button",
+          "attributes": {
+            "name": "Проход",
+            "functionNumber": 1,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 250,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn", "rounded-0"]
+          }
+        },
+        {
+          "id": 6,
+          "type": "button",
+          "attributes": {
+            "name": "Стоп",
+            "functionNumber": 1,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 350,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary", "rounded-0"]
+          }
+        },
+        {
+          "id": 7,
+          "type": "button",
+          "attributes": {
+            "name": "None",
+            "functionNumber": 1,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 450,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn", "rounded-0", "rounded-end"]
+          }
+        },
+        {
+          "id": 8,
+          "type": "textarea",
+          "attributes": {
+            "name": "textarea1",
+            "value": "[\n{\n\"state\": 1, \"name\": \"q1\", \"end\": false, \"command\": [\n{\"state\": 1, \"a\": \"*\", \"b\": \"*\", \"direction\": \"right\", \"do\": \"nothing\"},\n{\"state\": 2, \"a\": \"1\", \"b\": \"*\", \"direction\": \"left\", \"do\": \"remember\"},\n{\"state\": 2, \"a\": \"0\", \"b\": \"*\",  \"direction\": \"left\", \"do\": \"remember\"},\n{\"state\": 3, \"a\": \" \", \"b\": \"\", \"direction\": \"left\", \"do\": \"nothing\"},\n{\"state\": 3, \"a\": \"\", \"b\": \"\", \"direction\": \"left\", \"do\": \"nothing\"}\n]\n},\n{\n\"state\": 2, \"name\": \"q2\", \"end\": false, \"command\": [\n{\"state\": 2, \"a\": \"*\", \"b\": \"*\", \"direction\": \"left\", \"do\": \"nothing\"},\n{\"state\": 2, \"a\": \"1\", \"b\": \"1\", \"direction\": \"left\", \"do\": \"nothing\"},\n{\"state\": 2, \"a\": \"0\", \"b\": \"0\", \"direction\": \"left\", \"do\": \"nothing\"},\n{\"state\": 5, \"a\": \"\", \"b\": \"\", \"direction\": \"right\", \"do\": \"write\"},\n{\"state\": 5, \"a\": \" \", \"b\": \"\", \"direction\": \"right\", \"do\": \"write\"}\n]\n},\n{\n\"state\": 3, \"name\": \"q3\", \"end\": false, \"command\": [\n{\"state\": 3, \"a\": \"*\", \"b\": \"\", \"direction\": \"left\", \"do\": \"nothing\"},\n{\"state\": 4, \"a\": \"1\", \"b\": \"1\", \"direction\": \"stay\", \"do\": \"nothing\"},\n{\"state\": 4, \"a\": \"0\", \"b\": \"0\", \"direction\": \"stay\", \"do\": \"nothing\"}\n]\n},\n{\n\"state\": 4, \"name\": \"q4\", \"end\": true, \"command\": [\n]\n},\n{\n\"state\": 5, \"name\": \"q5\", \"end\": false, \"command\": [\n{\"state\": 5, \"a\": \"0\", \"b\": \"0\", \"direction\": \"right\", \"do\": \"nothing\"},\n{\"state\": 5, \"a\": \"1\", \"b\": \"1\", \"direction\": \"right\", \"do\": \"nothing\"},\n{\"state\": 1, \"a\": \"*\", \"b\": \"*\", \"direction\": \"right\", \"do\": \"nothing\"}\n]\n}\n]",
+            "type": "json",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 150,
+              "w": 400,
+              "h": 200
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["form-control"]
+          }
+        },
+        {
+          "id": 9,
+          "type": "textarea",
+          "attributes": {
+            "name": "textarea2",
+            "value": "q1",
+            "type": "текст",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 450,
+              "y": 150,
+              "w": 400,
+              "h": 200
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["form-control"]
+          }
+        },
+        {
+          "id": 10,
+          "type": "card",
+          "attributes": {
+            "value": "",
+            "name": "card1",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 350,
+              "w": 400,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        },
+        {
+          "id": 11,
+          "type": "staticTable",
+          "attributes": {
+            "rows": 2,
+            "columns": 13,
+            "blocks": [
+              {
+                "name": "block1",
+                "x_start": 1,
+                "y_start": 2,
+                "x_end": 13,
+                "y_end": 2,
+                "value": [
+                  [" ", "", "", "", "", "", "1", "1", "0", "1", "0", "", " "]
+                ],
+                "field": [],
+                "inputTypeIsText": [],
+                "type": "массив_текста",
+                "willBeEdited": true
+              },
+              {
+                "name": "block2",
+                "x_start": 1,
+                "y_start": 1,
+                "x_end": 13,
+                "y_end": 1,
+                "value": [[-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]],
+                "field": [],
+                "inputType": [],
+                "type": "массив_чисел",
+                "willBeEdited": false,
+                "color_block": {
+                  "color": "#11ee16",
+                  "value": "currentIndex",
+                  "number": 6
+                }
+              }
+            ],
+            "inputs": [
+              " -6",
+              " -5",
+              " -4",
+              " -3",
+              " -2",
+              " -1",
+              "0 ",
+              " 1",
+              " 2",
+              " 3",
+              " 4",
+              " 5",
+              "6 ",
+              " ",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "1",
+              "1",
+              "0",
+              "1",
+              "0",
+              "",
+              " "
+            ],
+            "edit": false,
+            "name": "1",
+            "table": true,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 400,
+              "w": 800,
+              "h": 100
+            },
+            "style": {
+              "mb": 0,
+              "mr": 0,
+              "mt": 0,
+              "ml": 0,
+              "background_color": "white"
+            },
+            "class": ["table", "table-bordered", "border-dark"]
+          }
+        }
+      ],
+      "last_id": 23,
+      "canvas": { "w": 900, "h": 500 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "  CurrentIndex = object[\"currentIndex\"]\n  answer[\"currentIndex\"] = CurrentIndex \n  currentState = object[\"currentState\"]\n  answer[\"isEnded\"] = object[\"isEnded\"]\n  answer[\"lenta\"] = lenta\n  answer[\"remember\"] = object[\"remember\"]\n  answer[\"count\"] = object[\"count\"]\n  answer[\"currentState\"] = currentState\n  answer[\"stateName\"] = tm[currentState-1][\"name\"]\n  if object[\"count\"] == 0 :\n     for state in tm :\n          if state[\"name\"] == firstState :\n               currentState = state[\"state\"]\n               break\n\n  if object[\"isEnded\"] == False :\n     for action in tm[currentState-1][\"command\"]:\n          if action[\"a\"] == lenta[0][CurrentIndex]: \n              if action[\"direction\"] == \"right\":\n                 answer[\"currentIndex\"] = CurrentIndex + 1\n              if action[\"direction\"] == \"left\":\n                 answer[\"currentIndex\"] = CurrentIndex - 1\n              if action[\"direction\"] == \"stay\":\n                 answer[\"currentIndex\"] = CurrentIndex\n              answer[\"stateName\"] = \"Состояние: \"+tm[action[\"state\"]-1][\"name\"]\n              answer[\"count\"] = object[\"count\"] + 1\n              answer[\"currentState\"] = action[\"state\"]\n              if action[\"do\"] == \"remember\":\n                 answer[\"remember\"] = lenta[0][CurrentIndex]\n              lenta[0][CurrentIndex] = action[\"b\"]\n              if action[\"do\"] == \"write\":\n                 lenta[0][CurrentIndex] = answer[\"remember\"]\n                 answer[\"remember\"] = \"\"\n              if action[\"do\"] == \"nothing\":\n                 answer[\"remember\"] = object[\"remember\"]\n              answer[\"lenta\"] = lenta\n              if tm[answer[\"currentState\"]-1][\"end\"] == True:\n                   answer[\"isEnded\"] = True \n              else :\n                   answer[\"isEnded\"] = False\n              break\n\n  if answer[\"isEnded\"] == True :\n    answer[\"stateName\"] += \" Закончено!\"\n\n",
+          "jsonInput": "[\n{\"tm\": \"textarea1\", \"type\": 1},\n{\"lenta\": \"block1\", \"type\": 1},\n{\"firstState\": \"textarea2\", \"type\": 1}\n]",
+          "jsonOutput": "{\n \"lenta\": \"block1\",\n \"currentIndex\": \"currentIndex\",\n \"stateName\": \"card1\",\n \"currentState\": \"currentState\",\n \"isEnded\": \"isEnded\",\n \"count\": \"count\"\n}",
+          "name": "Function0",
+          "control": 1,
+          "value": "",
+          "inputs": [
+            { "name": "currentIndex" },
+            { "name": "isEnded" },
+            { "name": "count" },
+            { "name": "currentState" },
+            { "name": "remember" },
+            { "name": "tm" },
+            { "name": "lenta" },
+            { "name": "firstState" }
+          ],
+          "outputs": []
+        },
+        {
+          "functionCode": "    CurrentIndexRemember = CurrentIndex",
+          "jsonInput": "[\n{\"tm\": \"textarea1\", \"type\": 1},\n{\"lenta\": \"block1\", \"type\": 1},\n{\"firstState\": \"textarea2\", \"type\": 1}\n]",
+          "jsonOutput": "",
+          "name": "Function1",
+          "control": 3,
+          "value": "",
+          "period": true,
+          "periodsec": 1000,
+          "inputs": [
+            { "name": "currentIndex" },
+            { "name": "isEnded" },
+            { "name": "count" },
+            { "name": "currentState" },
+            { "name": "remember" },
+            { "name": "tm" },
+            { "name": "lenta" },
+            { "name": "firstState" }
+          ],
+          "outputs": [],
+          "commands": [
+            {
+              "name": "stop",
+              "button": 6,
+              "commandName": "",
+              "commandCode": "       break",
+              "inputs": []
+            },
+            {
+              "name": "None",
+              "button": 7,
+              "commandName": "",
+              "commandCode": "       if count == 0:\n          for state in tm :\n               if state == firstState :\n                    currentState = state[\"state\"]\n                    break\n     \n       if isEnded == False:\n          for action in tm[currentState-1][\"command\"]:\n               if action[\"a\"] == lenta[0][CurrentIndex]: \n                   if action[\"direction\"] == \"right\":\n                      CurrentIndex = CurrentIndex + 1\n                   if action[\"direction\"] == \"left\":\n                      CurrentIndex = CurrentIndex - 1\n                   if action[\"direction\"] == \"stay\":\n                      CurrentIndex = CurrentIndex\n                   stateName = \"Состояние: \"+tm[action[\"state\"]-1][\"name\"]\n                   count = count + 1\n                   currentState = action[\"state\"]\n                   if action[\"do\"] == \"remember\":\n                      remember = lenta[0][CurrentIndexRemember]\n                   lenta[0][CurrentIndexRemember] = action[\"b\"]\n                   if action[\"do\"] == \"write\":\n                      lenta[0][CurrentIndexRemember] = remember\n                      remember = \"\"\n                   if action[\"do\"] == \"nothing\":\n                      remember = remember\n                   lenta = lenta\n                   if tm[currentState-1][\"end\"] == True:\n                      isEnded = True \n                   else:\n                      isEnded = False\n                      break\n\n       if isEnded == True:\n         stateName += \" Закончено!\"\n\n       answer[\"isEnded\"] = isEnded\n       answer[\"lenta\"] = lenta\n       answer[\"remember\"] = remember\n       answer[\"count\"] = count\n       answer[\"currentIndex\"] = CurrentIndex\n       answer[\"currentState\"] = currentState\n       answer[\"stateName\"] = stateName\n       if isEnded == True:\n         json_answer = json.dumps(answer)\n         print(json_answer)\n         break",
+              "inputs": []
+            }
+          ],
+          "inputCode": "tm = object[\"tm\"]\nlenta = object[\"lenta\"]\nfirstState = object[\"firstState\"]\nCurrentIndex = object[\"currentIndex\"]\ncurrentState = object[\"currentState\"]\nisEnded = object[\"isEnded\"]\nremember = object[\"remember\"]\ncount = object[\"count\"]\nstateName = tm[currentState-1][\"name\"]"
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "fsm",
+    "name": "Конечный автомат",
+    "dataUI": {
+      "id": "fsm",
+      "name": "Конечный автомат",
+      "inputs": [
+        {
+          "name": "currentState",
+          "value": "1",
+          "originalValue": "1",
+          "type": "число"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stateName",
+          "control": "card1",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "currentState",
+          "control": "currentState",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+        "roundSystem": false,
+        "rounds": []
+      },
+      "UIinputs": [
+        { "name": "fsm", "control": "textarea1" },
+        { "name": "nowState", "control": "textarea2" }
+      ],
+      "structure": [
+        {
+          "id": 3,
+          "type": "button",
+          "attributes": {
+            "functionNumber": 0,
+            "name": "Выполнить",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 49,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "button",
+          "attributes": {
+            "functionNumber": 0,
+            "name": "add",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 175,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn"]
+          }
+        },
+        {
+          "id": 5,
+          "type": "button",
+          "attributes": {
+            "functionNumber": 0,
+            "name": "stop",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 275,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary"]
+          }
+        },
+        {
+          "id": 6,
+          "type": "button",
+          "attributes": {
+            "functionNumber": 0,
+            "name": "None",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 375,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn"]
+          }
+        },
+        {
+          "id": 7,
+          "type": "textarea",
+          "attributes": {
+            "name": "textarea1",
+            "type": "json",
+            "value": "[\n{\"state\": 1, \"name\": \"L1\", \"command\": [\n{\"state\": 2, \"a\": \"q1\"},\n{\"state\": 2, \"a\": \"q2\"},\n{\"state\": 2, \"a\": \"q3\"}\n]},\n{\"state\": 2, \"name\": \"L2\", \"command\": [\n{\"state\": 1, \"a\": \"q5\"},\n{\"state\": 3, \"a\": \"q3\"}\n]},\n{\"state\": 3, \"name\": \"L3\", \"command\": [\n{\"state\": 2, \"a\": \"q4\"}\n]}\n]\n",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 150,
+              "w": 400,
+              "h": 200
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["form-control"]
+          }
+        },
+        {
+          "id": 8,
+          "type": "textarea",
+          "attributes": {
+            "name": "textarea2",
+            "type": "текст",
+            "value": "q1",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 450,
+              "y": 150,
+              "w": 400,
+              "h": 200
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["form-control"]
+          }
+        },
+        {
+          "id": 9,
+          "type": "card",
+          "attributes": {
+            "name": "card1",
+            "text": "",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 350,
+              "w": 300,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        }
+      ],
+      "last_id": 18,
+      "canvas": { "w": 900, "h": 500 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "",
+          "jsonInput": "[\n  {\"fsm\": \"textarea1\", \"type\": 1},\n  {\"nowState\": \"textarea2\", \"type\": 1}\n]",
+          "jsonOutput": "{\n \"stateName\": \"card1\",\n \"currentState\": \"currentState\"\n}",
+          "name": "Function0",
+          "control": 1,
+          "value": "",
+          "inputs": [
+            { "name": "currentState" },
+            { "name": "fsm" },
+            { "name": "nowState" }
+          ],
+          "outputs": [],
+          "period": true,
+          "commands": [
+            {
+              "name": "None",
+              "button": 6,
+              "commandName": "",
+              "commandCode": "",
+              "inputs": []
+            },
+            {
+              "name": "stop",
+              "button": 5,
+              "commandName": "",
+              "commandCode": "       break",
+              "inputs": []
+            },
+            {
+              "name": "add",
+              "button": 4,
+              "commandName": "",
+              "commandCode": "       nowState = input()\n       for action in fsm[currentState-1][\"command\"]:\n            if action[\"a\"] == nowState:\n                stateName=fsm[action[\"state\"]-1][\"name\"]\n                currentState=action[\"state\"]\n                break\n       answer[\"stateName\"] = stateName\n       answer[\"currentState\"]=action[\"state\"]",
+              "inputs": [{ "name": "nowState" }]
+            }
+          ],
+          "inputCode": "currentState = object[\"currentState\"]\nfsm = object[\"fsm\"]\nnowState = object[\"nowState\"]\nstartState = 1\nstateName = \"\"\nanswer[\"stateName\"] = stateName\nanswer[\"currentState\"]=currentState",
+          "periodsec": 10000
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "sql",
+    "name": "SQL",
+    "dataUI": {
+      "id": "sql",
+      "name": "SQL",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "table",
+          "control": "block2",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+        "roundSystem": false,
+        "rounds": []
+      },
+      "UIinputs": [{ "name": "query", "control": "textarea1" }],
+      "structure": [
+        {
+          "id": 2,
+          "type": "button",
+          "attributes": {
+            "name": "Выполнить",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary"]
+          }
+        },
+        {
+          "id": 3,
+          "type": "textarea",
+          "attributes": {
+            "name": "textarea1",
+            "value": "SELECT * FROM humans",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 150,
+              "w": 400,
+              "h": 200
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["form-control"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "card",
+          "attributes": {
+            "value": "Таблица \"humans\"",
+            "name": "card1",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 512,
+              "y": 89,
+              "w": 200,
+              "h": 70
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        },
+        {
+          "id": 5,
+          "type": "staticTable",
+          "attributes": {
+            "rows": 6,
+            "columns": 4,
+            "blocks": [],
+            "inputs": [
+              "id",
+              "name",
+              "surname",
+              "age",
+              "1",
+              "Sergey",
+              "Kuznetsov",
+              "20",
+              "2",
+              "Alexei",
+              "Smirnov",
+              "19",
+              "3",
+              "Maria",
+              "Bykova",
+              "26",
+              "4",
+              "Sofia",
+              "Bazeva",
+              "20",
+              "5",
+              "Anton",
+              "Kun",
+              "18"
+            ],
+            "edit": false,
+            "name": "table1",
+            "table": true,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 511,
+              "y": 155,
+              "w": 300,
+              "h": 250
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["table", "table-bordered", "border-dark ", "table-light"]
+          }
+        },
+        {
+          "id": 6,
+          "type": "dynamicTable",
+          "attributes": {
+            "rows": 1,
+            "columns": 1,
+            "blocks": [
+              {
+                "x": 1,
+                "y": 1,
+                "name": "block2",
+                "value": "[]",
+                "field": [],
+                "inputTypeIsText": [],
+                "type": "json_ready"
+              }
+            ],
+            "inputs": [" "],
+            "edit": false,
+            "name": "table2",
+            "table": true,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 51,
+              "y": 370,
+              "w": 300,
+              "h": 250
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": [
+              "table",
+              "table-bordered",
+              "border-dark ",
+              "table-primary"
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "type": "file",
+          "attributes": {
+            "fieldname": "file",
+            "originalname": "trainer_components.db",
+            "encoding": "7bit",
+            "mimetype": "application/octet-stream",
+            "destination": "src/components/file/",
+            "filename": "trainer_components.db",
+            "path": "src\\components\\file\\trainer_components.db",
+            "size": 8192,
+            "positions": {
+              "left": 0,
+              "bottom": 0,
+              "top": 0,
+              "right": 0,
+              "x": 800,
+              "y": 0,
+              "w": 100,
+              "h": 100
+            },
+            "name": ""
+          }
+        }
+      ],
+      "last_id": 17,
+      "canvas": { "w": 900, "h": 1000 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "  db = sqlite3.connect(\"./src/components/files/trainer_components.db\")\n  db.row_factory = sqlite3.Row\n  sql = db.cursor()\n  sql.execute(query)\n  table = sql.fetchall()\n  db.close()\n  new_table = json.dumps([dict(ix) for ix in table])\n  answer[\"table\"] = new_table\n",
+          "jsonInput": "[\n{ \"query\": \"textarea1\", \"type\": 1  }\n]",
+          "jsonOutput": "{\n   \"table\": \"block2\"\n}",
+          "name": "Function0",
+          "control": 1,
+          "value": "",
+          "inputs": [{ "name": "query" }],
+          "outputs": [{ "name": "table" }]
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "monopoly",
+    "name": "Игра Монополия",
+    "dataUI": {
+      "id": "monopoly",
+      "name": "Игра Монополия",
+      "inputs": [
+        {
+          "name": "Input0",
+          "value": "740",
+          "originalValue": "740",
+          "type": "число"
+        },
+        {
+          "name": "Input1",
+          "value": "80",
+          "originalValue": "80",
+          "type": "число"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "answer",
+          "control": "card2",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+        "roundSystem": true,
+        "rounds": [
+          {
+            "name": "",
+            "roundInputs": [
+              {
+                "name": "card1",
+                "value": "Вы - монополист, единственная фирма, продающая продукт на данном рынке.\n\nОбщее количество Q, которое потребители хотели бы приобрести за данный период времени, зависит от вашей цены P следующим образом: P=740-80Q (смотрите кривую спроса, изображенную красным цветом ниже).\n\nВаши производственные мощности в течение этого периода ограничены максимум 9 товарами.\n\nВаши консультанты предоставят вам таблицу с суммированием ваших затрат, чтобы помочь вам выбрать оптимальную цену и оптимальное количество для производства:\n\nTC - это ваши общие затраты, понесенные при производстве отображаемого количества. MC - это предельные издержки, то есть дополнительные затраты, понесенные при производстве дополнительной единицы (например, производство 4-й единицы обходится вам дополнительно в 45 тысяч долларов).\n\nПримечание: В этом случае вы понесете фиксированные расходы в размере 200 тысяч долларов только в том случае, если произведете положительную сумму. То есть, если вы решите произвести 0 единиц продукции, ваша общая стоимость составит 0 долларов.",
+                "type": "текст",
+                "attributes": {
+                  "name": "card1",
+                  "value": "Вы - монополист, единственная фирма, продающая продукт на данном рынке.\n\nОбщее количество Q, которое потребители хотели бы приобрести за данный период времени, зависит от вашей цены P следующим образом: P=740-80Q (смотрите кривую спроса, изображенную красным цветом ниже).\n\nВаши производственные мощности в течение этого периода ограничены максимум 9 товарами.\n\nВаши консультанты предоставят вам таблицу с суммированием ваших затрат, чтобы помочь вам выбрать оптимальную цену и оптимальное количество для производства:\n\nTC - это ваши общие затраты, понесенные при производстве отображаемого количества. MC - это предельные издержки, то есть дополнительные затраты, понесенные при производстве дополнительной единицы (например, производство 4-й единицы обходится вам дополнительно в 45 тысяч долларов).\n\nПримечание: В этом случае вы понесете фиксированные расходы в размере 200 тысяч долларов только в том случае, если произведете положительную сумму. То есть, если вы решите произвести 0 единиц продукции, ваша общая стоимость составит 0 долларов.",
+                  "type": "текст"
+                }
+              },
+              {
+                "name": "card2",
+                "value": " ",
+                "type": "текст",
+                "attributes": { "name": "card2", "value": " ", "type": "текст" }
+              }
+            ],
+            "roundOutputs": [
+              {
+                "name": "card2",
+                "value": "Ответ верный!",
+                "attributes": { "name": "card2", "value": "Ответ верный!" }
+              }
+            ]
+          },
+          {
+            "name": "",
+            "roundInputs": [
+              {
+                "name": "block1",
+                "value": "[\n[ 1, 0, 700, 700, 700, 0 ],\n[ 2, 6, 700, 706, 353, 6 ],\n[ 3, 27, 700, 727, 242.33, 21 ],\n[ 4, 72, 700, 772, 193, 45 ],\n[ 5, 150, 700, 850, 170, 78 ],\n[ 6, 270, 700, 970, 161.66, 120 ],\n[ 7, 441, 700, 1141, 163, 171 ],\n[ 8, 672, 700, 1372, 171.5, 231 ],\n[ 9, 972, 700, 1672, 185.78, 300 ]\n]",
+                "type": "массив_чисел",
+                "attributes": {
+                  "name": "block1",
+                  "value": "[\n[ 1, 0, 700, 700, 700, 0 ],\n[ 2, 6, 700, 706, 353, 6 ],\n[ 3, 27, 700, 727, 242.33, 21 ],\n[ 4, 72, 700, 772, 193, 45 ],\n[ 5, 150, 700, 850, 170, 78 ],\n[ 6, 270, 700, 970, 161.66, 120 ],\n[ 7, 441, 700, 1141, 163, 171 ],\n[ 8, 672, 700, 1372, 171.5, 231 ],\n[ 9, 972, 700, 1672, 185.78, 300 ]\n]",
+                  "type": "массив_чисел"
+                }
+              },
+              {
+                "name": "card1",
+                "value": "Местное правительство принимает новый нормативный закон, который требует от вас инвестировать в безопасность на рабочем месте. По мере того как вы будете соблюдать новый закон, ваши постоянные расходы увеличатся до 700 тысяч долларов.\n\nВсе остальное остается неизменным.\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                "type": "текст",
+                "attributes": {
+                  "name": "card1",
+                  "value": "Местное правительство принимает новый нормативный закон, который требует от вас инвестировать в безопасность на рабочем месте. По мере того как вы будете соблюдать новый закон, ваши постоянные расходы увеличатся до 700 тысяч долларов.\n\nВсе остальное остается неизменным.\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                  "type": "текст"
+                }
+              },
+              {
+                "name": "card2",
+                "value": " ",
+                "type": "текст",
+                "attributes": { "name": "card2", "value": " ", "type": "текст" }
+              }
+            ],
+            "roundOutputs": [
+              {
+                "name": "card2",
+                "value": "Ответ верный!",
+                "attributes": { "name": "card2", "value": "Ответ верный!" }
+              }
+            ]
+          },
+          {
+            "name": "",
+            "roundInputs": [
+              {
+                "name": "block1",
+                "value": "[\n[ 1, 0, 1700, 1700, 1700, 0 ],\n[ 2, 6, 1700, 1706, 853, 6 ],\n[ 3, 27, 1700, 1727, 675.66, 21 ],\n[ 4, 72, 1700, 1772, 443, 45 ],\n[ 5, 150, 1700, 1850, 370, 78 ],\n[ 6, 270, 1700, 1970, 328.33, 120 ],\n[ 7, 441, 1700, 2141, 305.85, 171 ],\n[ 8, 672, 1700, 2372, 296.5, 231 ],\n[ 9, 972, 1700, 2672, 296.89, 300 ]\n]",
+                "type": "массив_чисел",
+                "attributes": {
+                  "name": "block1",
+                  "value": "[\n[ 1, 0, 1700, 1700, 1700, 0 ],\n[ 2, 6, 1700, 1706, 853, 6 ],\n[ 3, 27, 1700, 1727, 675.66, 21 ],\n[ 4, 72, 1700, 1772, 443, 45 ],\n[ 5, 150, 1700, 1850, 370, 78 ],\n[ 6, 270, 1700, 1970, 328.33, 120 ],\n[ 7, 441, 1700, 2141, 305.85, 171 ],\n[ 8, 672, 1700, 2372, 296.5, 231 ],\n[ 9, 972, 1700, 2672, 296.89, 300 ]\n]",
+                  "type": "массив_чисел"
+                }
+              },
+              {
+                "name": "card1",
+                "value": "Наряду с местными нормативными актами теперь существует федеральный мандат, который требует от вас дальнейших инвестиций в обеспечение безопасности на рабочем месте. Это увеличивает ваши постоянные расходы на 1 миллион долларов. То есть ваша общая фиксированная стоимость сейчас составляет 1,7 миллиона долларов.\n\nВсе остальное остается неизменным.\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                "type": "текст",
+                "attributes": {
+                  "name": "card1",
+                  "value": "Наряду с местными нормативными актами теперь существует федеральный мандат, который требует от вас дальнейших инвестиций в обеспечение безопасности на рабочем месте. Это увеличивает ваши постоянные расходы на 1 миллион долларов. То есть ваша общая фиксированная стоимость сейчас составляет 1,7 миллиона долларов.\n\nВсе остальное остается неизменным.\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                  "type": "текст"
+                }
+              },
+              {
+                "name": "card2",
+                "value": " ",
+                "type": "текст",
+                "attributes": { "name": "card2", "value": " ", "type": "текст" }
+              }
+            ],
+            "roundOutputs": [
+              {
+                "name": "card2",
+                "value": "Ответ верный!",
+                "attributes": { "name": "card2", "value": "Ответ верный!" }
+              }
+            ]
+          },
+          {
+            "name": "",
+            "roundInputs": [
+              {
+                "name": "block1",
+                "value": "[\n[ 1, 0, 200, 400, 400, 0 ],\n[ 2, 6, 200, 606, 303, 6 ],\n[ 3, 27, 200, 827, 275.66, 21 ],\n[ 4, 72, 200, 1072, 268, 45 ],\n[ 5, 150, 200, 1350, 270, 78 ],\n[ 6, 270, 200, 1670, 278.33, 120 ],\n[ 7, 441, 200, 2041, 291.57, 171 ],\n[ 8, 672, 200, 2472, 309, 231 ],\n[ 9, 972, 200, 2972, 330.2, 300 ]\n]",
+                "type": "массив_чисел",
+                "attributes": {
+                  "name": "block1",
+                  "value": "[\n[ 1, 0, 200, 400, 400, 0 ],\n[ 2, 6, 200, 606, 303, 6 ],\n[ 3, 27, 200, 827, 275.66, 21 ],\n[ 4, 72, 200, 1072, 268, 45 ],\n[ 5, 150, 200, 1350, 270, 78 ],\n[ 6, 270, 200, 1670, 278.33, 120 ],\n[ 7, 441, 200, 2041, 291.57, 171 ],\n[ 8, 672, 200, 2472, 309, 231 ],\n[ 9, 972, 200, 2972, 330.2, 300 ]\n]",
+                  "type": "массив_чисел"
+                }
+              },
+              {
+                "name": "card1",
+                "value": "Регулирующая политика - как на местном, так и на федеральном уровне - отменяется, поэтому постоянные издержки производства возвращаются к уровню, который был в первом раунде (т.е. на уровне 200 тысяч долларов).\n\nВместо этого теперь от вас требуется использовать более качественные (неопасные) материалы для вашего производства, что увеличивает ваши предельные издержки производства: каждая дополнительная единица теперь будет стоить дополнительно 200 тысяч долларов\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                "type": "текст",
+                "attributes": {
+                  "name": "card1",
+                  "value": "Регулирующая политика - как на местном, так и на федеральном уровне - отменяется, поэтому постоянные издержки производства возвращаются к уровню, который был в первом раунде (т.е. на уровне 200 тысяч долларов).\n\nВместо этого теперь от вас требуется использовать более качественные (неопасные) материалы для вашего производства, что увеличивает ваши предельные издержки производства: каждая дополнительная единица теперь будет стоить дополнительно 200 тысяч долларов\n\nЕсли вы решите произвести 0 единиц продукции, ваши затраты составят 0 долларов.",
+                  "type": "текст"
+                }
+              },
+              {
+                "name": "card2",
+                "value": " ",
+                "type": "текст",
+                "attributes": { "name": "card2", "value": " ", "type": "текст" }
+              }
+            ],
+            "roundOutputs": [
+              {
+                "name": "card2",
+                "value": "Ответ верный!",
+                "attributes": { "name": "card2", "value": "Ответ верный!" }
+              }
+            ]
+          },
+          {
+            "name": "",
+            "roundInputs": [
+              {
+                "name": "block1",
+                "value": "[\n[ 1, 0, 200, 400, 400, 0 ],\n[ 2, 6, 200, 606, 303, 6 ],\n[ 3, 27, 200, 827, 275.66, 21 ],\n[ 4, 72, 200, 1072, 268, 45 ],\n[ 5, 150, 200, 1350, 270, 78 ],\n[ 6, 270, 200, 1670, 278.33, 120 ],\n[ 7, 441, 200, 2041, 291.57, 171 ],\n[ 8, 672, 200, 2472, 309, 231 ],\n[ 9, 972, 200, 2972, 330.2, 300 ]\n]",
+                "type": "массив_чисел",
+                "attributes": {
+                  "name": "block1",
+                  "value": "[\n[ 1, 0, 200, 400, 400, 0 ],\n[ 2, 6, 200, 606, 303, 6 ],\n[ 3, 27, 200, 827, 275.66, 21 ],\n[ 4, 72, 200, 1072, 268, 45 ],\n[ 5, 150, 200, 1350, 270, 78 ],\n[ 6, 270, 200, 1670, 278.33, 120 ],\n[ 7, 441, 200, 2041, 291.57, 171 ],\n[ 8, 672, 200, 2472, 309, 231 ],\n[ 9, 972, 200, 2972, 330.2, 300 ]\n]",
+                  "type": "массив_чисел"
+                }
+              },
+              {
+                "name": "Input0",
+                "value": "980",
+                "type": "число",
+                "attributes": {
+                  "name": "Input0",
+                  "value": "980",
+                  "type": "число"
+                }
+              },
+              {
+                "name": "Input1",
+                "value": "160",
+                "type": "число",
+                "attributes": {
+                  "name": "Input1",
+                  "value": "160",
+                  "type": "число"
+                }
+              },
+              {
+                "name": "card1",
+                "value": "В этом раунде ваши расходы такие же, как и в прошлом раунде. Однако спрос меняется: некоторые из ваших потенциальных клиентов готовы заплатить за ваш продукт больше, чем в прошлом раунде, но есть и другие, которые готовы платить меньше.\n\nОднако при оптимальной цене, то есть 500 тысяч долларов, общий спрос остается прежним: 3 единицы.\n\nФормально, сейчас P=980-160Q.\n\nОдин из ваших консультантов предполагает, что вам по-прежнему следует брать 500 тысяч долларов, поскольку ваши затраты не изменились, и вы можете продавать столько же, сколько и раньше, по этой цене.\n\nДругой консультант утверждает, что ваши стимулы устанавливать другую цену изменились, и, следовательно, вам следует рассмотреть возможность ее изменения.",
+                "type": "текст",
+                "attributes": {
+                  "name": "card1",
+                  "value": "В этом раунде ваши расходы такие же, как и в прошлом раунде. Однако спрос меняется: некоторые из ваших потенциальных клиентов готовы заплатить за ваш продукт больше, чем в прошлом раунде, но есть и другие, которые готовы платить меньше.\n\nОднако при оптимальной цене, то есть 500 тысяч долларов, общий спрос остается прежним: 3 единицы.\n\nФормально, сейчас P=980-160Q.\n\nОдин из ваших консультантов предполагает, что вам по-прежнему следует брать 500 тысяч долларов, поскольку ваши затраты не изменились, и вы можете продавать столько же, сколько и раньше, по этой цене.\n\nДругой консультант утверждает, что ваши стимулы устанавливать другую цену изменились, и, следовательно, вам следует рассмотреть возможность ее изменения.",
+                  "type": "текст"
+                }
+              },
+              {
+                "name": "card2",
+                "value": " ",
+                "type": "текст",
+                "attributes": { "name": "card2", "value": " ", "type": "текст" }
+              }
+            ],
+            "roundOutputs": [
+              {
+                "name": "card2",
+                "value": "Ответ верный!",
+                "attributes": { "name": "card2", "value": "Ответ верный!" }
+              }
+            ]
+          }
+        ]
+      },
+      "UIinputs": [
+        { "name": "goods", "control": "input1" },
+        { "name": "price", "control": "input2" },
+        { "name": "table", "control": "block1" }
+      ],
+      "structure": [
+        {
+          "id": 1,
+          "type": "button",
+          "attributes": {
+            "name": "Выполнить",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 49,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary"]
+          }
+        },
+        {
+          "id": 2,
+          "type": "card",
+          "attributes": {
+            "value": "Вы - монополист, единственная фирма, продающая продукт на данном рынке.\n\nОбщее количество Q, которое потребители хотели бы приобрести за данный период времени, зависит от вашей цены P следующим образом: P=740-80Q (смотрите кривую спроса, изображенную красным цветом ниже).\n\nВаши производственные мощности в течение этого периода ограничены максимум 9 товарами.\n\nВаши консультанты предоставят вам таблицу с суммированием ваших затрат, чтобы помочь вам выбрать оптимальную цену и оптимальное количество для производства:\n\nTC - это ваши общие затраты, понесенные при производстве отображаемого количества. MC - это предельные издержки, то есть дополнительные затраты, понесенные при производстве дополнительной единицы (например, производство 4-й единицы обходится вам дополнительно в 45 тысяч долларов).\n\nПримечание: В этом случае вы понесете фиксированные расходы в размере 200 тысяч долларов только в том случае, если произведете положительную сумму. То есть, если вы решите произвести 0 единиц продукции, ваша общая стоимость составит 0 долларов.",
+            "name": "card1",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 100,
+              "w": 900,
+              "h": 300
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        },
+        {
+          "id": 3,
+          "type": "card",
+          "attributes": {
+            "value": " ",
+            "name": "card2",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 400,
+              "w": 200,
+              "h": 75
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "staticTable",
+          "attributes": {
+            "rows": 10,
+            "columns": 6,
+            "blocks": [
+              {
+                "name": "block1",
+                "x_start": 1,
+                "y_start": 2,
+                "x_end": 6,
+                "y_end": 10,
+                "value": [
+                  [1, 0, 200, 200, 200, 0],
+                  [2, 6, 200, 206, 103, 6],
+                  [3, 27, 200, 227, 75, 21],
+                  [4, 72, 200, 272, 68, 45],
+                  [5, 150, 200, 350, 70, 78],
+                  [6, 270, 200, 470, 78, 120],
+                  [7, 441, 200, 641, 91, 171],
+                  [8, 672, 200, 872, 109, 231],
+                  [9, 972, 200, 1172, 130, 300]
+                ],
+                "field": [],
+                "inputType": [],
+                "type": "массив_чисел"
+              }
+            ],
+            "inputs": [
+              "Q ",
+              "VC",
+              "FC ",
+              "TC ",
+              "AC ",
+              "MC ",
+              "1",
+              "0",
+              "200",
+              "200",
+              "200",
+              "0",
+              "2",
+              "6",
+              "200",
+              "206",
+              "103",
+              "6",
+              "3",
+              "27",
+              "200",
+              "227",
+              "75",
+              "21",
+              "4",
+              "72",
+              "200",
+              "272",
+              "68",
+              "45",
+              "5",
+              "150",
+              "200",
+              "350",
+              "70",
+              "78",
+              "6",
+              "270",
+              "200",
+              "470",
+              "78",
+              "120",
+              "7",
+              "441",
+              "200",
+              "641",
+              "91",
+              "171",
+              "8",
+              "672",
+              "200",
+              "872",
+              "109",
+              "231",
+              "9",
+              "972",
+              "200",
+              "1172",
+              "130",
+              "300"
+            ],
+            "edit": false,
+            "name": "table1",
+            "table": true,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 475,
+              "w": 400,
+              "h": 400
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["table", "table-bordered", "border-dark ", "table-light"]
+          }
+        },
+        {
+          "id": 6,
+          "type": "textinput",
+          "attributes": {
+            "name": "input1",
+            "textname": "Количество товара",
+            "value": "4",
+            "type": "число",
+            "x": 0,
+            "y": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 900,
+              "w": 200,
+              "h": 100
+            }
+          }
+        },
+        {
+          "id": 7,
+          "type": "textinput",
+          "attributes": {
+            "name": "input2",
+            "textname": "Цена",
+            "value": "420",
+            "type": "число",
+            "x": 0,
+            "y": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 300,
+              "y": 900,
+              "w": 200,
+              "h": 100
+            }
+          }
+        }
+      ],
+      "last_id": 18,
+      "canvas": { "w": 1000, "h": 1000 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "  answer={}\n  array=[0,0,0,0,0,0,0,0,0]\n  i=0\n  while i < 9:\n     array[i] = (object[\"Input0\"]-table[i][0]*object[\"Input1\"])*table[i][0]-table[i][3]\n     i=i+1\n  if(goods == array.index(max(array))+1 and price==object[\"Input0\"]-goods*object[\"Input1\"]  and max(array) > 0):\n      answer[\"answer\"] = \"Ответ верный!\"\n  else:\n      answer[\"answer\"] = \"Ответ неверный!\"\n  if(max(array) <= 0 and goods == 0 and price == 0):\n      answer[\"answer\"] = \"Ответ верный!\"  \n",
+          "jsonInput": "[\n {\"goods\": \"input1\", \"type\": 1},\n {\"price\": \"input2\", \"type\": 1},\n {\"table\": \"block1\", \"type\": 1}\n]",
+          "jsonOutput": "{\n  \"answer\": \"card2\"\n}",
+          "name": "Function0",
+          "control": "",
+          "value": "",
+          "inputs": [
+            { "name": "Input0" },
+            { "name": "Input1" },
+            { "name": "goods" },
+            { "name": "price" },
+            { "name": "table" }
+          ],
+          "outputs": []
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "slot_machine",
+    "name": "Игровой автомат",
+    "dataUI": {
+      "id": "slot_machine",
+      "name": "Игровой автомат",
+      "UIinputs": [{ "name": "stroka", "control": "card2" }],
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "n",
+          "control": "card2",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+        "roundSystem": false,
+        "rounds": []
+      },
+      "structure": [
+        {
+          "id": 2,
+          "type": "button",
+          "attributes": {
+            "name": "Запуск",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary"]
+          }
+        },
+        {
+          "id": 3,
+          "type": "button",
+          "attributes": {
+            "name": "Стоп",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 150,
+              "y": 50,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "button",
+          "attributes": {
+            "name": "None",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 250,
+              "y": 49,
+              "w": 100,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn"]
+          }
+        },
+        {
+          "id": 5,
+          "type": "card",
+          "attributes": {
+            "value": "Алфавит: a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0",
+            "name": "Алфавит",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 357,
+              "y": 50,
+              "w": 300,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card", "bg-dark", "text-warning"]
+          }
+        },
+        {
+          "id": 6,
+          "type": "card",
+          "attributes": {
+            "value": "",
+            "name": "card2",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 48,
+              "y": 102,
+              "w": 200,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card", "bg-dark", "text-info"]
+          }
+        }
+      ],
+      "last_id": 14,
+      "canvas": { "w": 900, "h": 700 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "",
+          "jsonInput": "{ input: }",
+          "jsonOutput": "card1",
+          "commands": [
+            {
+              "commandName": "stop",
+              "commandCode": "       if n[0]==n[1]==n[2]:\n          answer[\"n\"] = \"Вы выиграли!\"\n       else:\n          answer[\"n\"] = \"Еще раз!\"\n       json_answer = json.dumps(answer)\n       print(json_answer)\n       break\n",
+              "button": 3,
+              "name": "stop",
+              "inputs": [],
+              "outputs": []
+            },
+            {
+              "name": "None",
+              "button": 4,
+              "commandName": "",
+              "commandCode": "       a = random.randint(0,2)\n       a1 = alphabet[a]\n       b = random.randint(0,2)\n       b1 = alphabet[b]\n       c = random.randint(0,2)\n       c1 = alphabet[c]\n       n = a1 + b1 + c1       \n       answer[\"n\"] = n",
+              "inputs": []
+            }
+          ],
+          "name": "Launch",
+          "control": 1,
+          "value": "",
+          "period": true,
+          "periodsec": 1000,
+          "inputs": [],
+          "outputs": [{ "name": "n" }],
+          "inputCode": "alphabet=\"abc\"\nn = \"\"",
+          "stopPeriod": true
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "supply_and_demand",
+    "name": "Кривая спроса и предложения",
+    "dataUI": {
+      "id": "supply_and_demand",
+      "name": "Кривая спроса и предложения",
+      "UIinputs": [
+        { "name": "p1", "control": "p1" },
+        { "name": "p2", "control": "p2" },
+        { "name": "q1", "control": "q1" },
+        { "name": "q2", "control": "q2" }
+      ],
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "x1",
+          "control": "Supply",
+          "mode": "value",
+          "isPlotly": true,
+          "plotlyAttrs": {},
+          "plotlyObject": { "id": "0", "attribute": "x" }
+        },
+        {
+          "name": "y1",
+          "control": "Supply",
+          "mode": "value",
+          "isPlotly": true,
+          "plotlyAttrs": {},
+          "plotlyObject": { "id": "0", "attribute": "y" }
+        },
+        {
+          "name": "x2",
+          "control": "Supply",
+          "mode": "value",
+          "isPlotly": true,
+          "plotlyAttrs": {},
+          "plotlyObject": { "id": "1", "attribute": "x" }
+        },
+        {
+          "name": "y2",
+          "control": "Supply",
+          "mode": "value",
+          "isPlotly": true,
+          "plotlyAttrs": {},
+          "plotlyObject": { "id": "1", "attribute": "y" }
+        },
+        {
+          "name": "info",
+          "control": "cardInfo",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+      },
+      "structure": [
+        {
+          "id": 3,
+          "type": "button",
+          "attributes": {
+            "name": "Выполнить",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 50,
+              "w": 120,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-outline-primary", "rounded-pill"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "textinput",
+          "attributes": {
+            "textname": "C1",
+            "name": "p1",
+            "value": "",
+            "type": "число",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 100,
+              "w": 150,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 6,
+          "type": "textinput",
+          "attributes": {
+            "textname": "D1",
+            "name": "p2",
+            "value": "",
+            "type": "число",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 200,
+              "y": 100,
+              "w": 150,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 5,
+          "type": "textinput",
+          "attributes": {
+            "textname": "C2",
+            "name": "q1",
+            "value": "",
+            "type": "число",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 350,
+              "y": 100,
+              "w": 150,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 7,
+          "type": "textinput",
+          "attributes": {
+            "textname": "D2",
+            "name": "q2",
+            "value": "",
+            "type": "число",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 500,
+              "y": 100,
+              "w": 150,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 8,
+          "type": "2Dcomponent",
+          "attributes": {
+            "data": [
+              {
+                "line": { "color": "#5539f0", "opacity": 1, "width": 1 },
+                "marker": { "color": "#4bcbeb", "opacity": 1, "size": 5 },
+                "mode": "lines+markers",
+                "name": "Спрос",
+                "text": [],
+                "type": "scatter",
+                "x": [],
+                "y": []
+              },
+              {
+                "line": { "color": "#e77927", "opacity": 1, "width": 1 },
+                "marker": { "color": "#f11f14", "opacity": 1, "size": 5 },
+                "mode": "lines+markers",
+                "name": "Предложение",
+                "text": [],
+                "type": "scatter",
+                "x": [],
+                "y": []
+              }
+            ],
+            "layout": {
+              "margin": { "b": 100, "t": 100, "l": 100, "r": 100 },
+              "title": { "text": "Кривая спроса и предложения" },
+              "xaxis": {
+                "autorange": true,
+                "type": "linear",
+                "range": [-1, 1]
+              },
+              "yaxis": { "autorange": true, "type": "linear", "range": [3, 5] },
+              "width": 800,
+              "height": 450
+            },
+            "config": {},
+            "plotlyId": "plot8",
+            "name": "Supply",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 199,
+              "w": 800,
+              "h": 450
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 9,
+          "type": "card",
+          "attributes": {
+            "value": "",
+            "name": "cardInfo",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 650,
+              "w": 600,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card", "bg-dark", "text-info", "rounded-0"]
+          }
+        },
+        {
+          "id": 10,
+          "type": "card",
+          "attributes": {
+            "value": "Формула спроса: Q = C1 - D1*P (C1 и D1 пользователь вводит)<br>\nФормула предложения: Q = C2 - D2*P (C2 и D2 пользователь вводит)<br>\n<b>\nЗадача: найти равновесную цену (P - цена) и равновесный объём (Q - объём продаж) <br>\nРавновесная цена - цена, при которой объём спроса равен объёму предложения, и этот объём, соответственно, является равновесным\n</b>",
+            "name": "1",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 750,
+              "w": 600,
+              "h": 175
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card", "bg-dark", "text-white", "rounded-0"]
+          }
+        }
+      ],
+      "last_id": 22,
+      "canvas": { "w": 900, "h": 1000 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "  x1=[0,0,0]\n  y1=[0,0,0]\n  x2=[0,0,0]\n  y2=[0,0,0]\n  P = 0\n  Q = 0\n  first = p1-q1\n  second = q2-p2\n  P = first/second\n  Q = p1+p2*P\n  x1[0] = 0\n  x2[0] = 0\n  y1[0] = -p1/p2\n  y2[0] = -q1/q2\n  x1[1] = Q\n  x2[1] = Q\n  y1[1] = P\n  y2[1] = P\n  x1[2] = 2*Q\n  x2[2] = 2*Q\n  test = \"test\"\n  y1[2] = -(p1-x1[2])/p2\n  y2[2] = -(q1-x2[2])/q2\n  answer[\"x1\"] = x1\n  answer[\"y1\"] = y1\n  answer[\"x2\"] = x2\n  answer[\"y2\"] = y2\n  answer[\"info\"] = \"Равновесная цена: \" + str(P) + \"<br>\" + \"Пересечение прямых = равновесная цена <br>\"  + \"Объём продаж: \" + str(Q)\n",
+          "jsonInput": "[\n{\"p1\": \"p1\", \"type\": 1},\n{\"p2\": \"p2\", \"type\": 1},\n{\"q1\": \"q1\", \"type\": 1},\n{\"q2\": \"q2\", \"type\": 1}\n]",
+          "jsonOutput": "",
+          "name": "BuildScatter",
+          "control": "",
+          "value": "",
+          "inputs": [
+            { "name": "p1" },
+            { "name": "p2" },
+            { "name": "q1" },
+            { "name": "q2" }
+          ],
+          "outputs": [
+            { "name": "x1" },
+            { "name": "y1" },
+            { "name": "x2" },
+            { "name": "y2" }
+          ],
+          "period": false,
+          "periodsec": 0,
+          "commands": []
+        }
+      ]
+    }
+  },
+  {
+    "IDtext": "tetris",
+    "name": "Тетрис",
+    "dataUI": {
+      "id": "tetris",
+      "name": "Тетрис",
+      "UIinputs": [],
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "tetris_graph",
+          "control": "tetris_field",
+          "plotlyObject": {
+            "id": "data",
+            "attribute": ["x", "y", "fillcolor"],
+            "dataElement": "{ \"x\": [  ], \"y\": [  ], \"type\": \"scatter\", \"text\": [], \"mode\": \"lines\", \"line\": { \"width\": 0, \"color\": \"#06fd00\", \"opacity\": 1 }, \"fillcolor\": \"\", \"fill\": \"toself\" }"
+          },
+          "mode": "value",
+          "isPlotly": true,
+          "plotlyAttrs": {}
+        },
+        {
+          "name": "score",
+          "control": "score",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        },
+        {
+          "name": "status",
+          "control": "0",
+          "plotlyObject": { "id": "", "attribute": "" },
+          "mode": "value"
+        }
+      ],
+      "settings": {
+      },
+      "description": "Реализация игры \"Тетрис\" с использованием библиотеки Plotly.js",
+      "status": "В разработке",
+      "created": "10.12.2023",
+      "structure": [
+        {
+          "id": 3,
+          "type": "button",
+          "attributes": {
+            "name": "Выполнить",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 50,
+              "w": 110,
+              "h": 50
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "text-warning", "btn-primary"]
+          }
+        },
+        {
+          "id": 4,
+          "type": "textinput",
+          "attributes": {
+            "name": "score",
+            "textname": "Score",
+            "value": "0",
+            "type": "число",
+            "x": 0,
+            "y": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 50,
+              "y": 100,
+              "w": 200,
+              "h": 100
+            }
+          }
+        },
+        {
+          "id": 5,
+          "type": "card",
+          "attributes": {
+            "value": "",
+            "name": "0",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 250,
+              "y": 125,
+              "w": 200,
+              "h": 70
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["card"]
+          }
+        },
+        {
+          "id": 13,
+          "type": "2Dcomponent",
+          "attributes": {
+            "data": [
+              {
+                "type": "scatter",
+                "mode": "lines",
+                "x": ["0", "0", "12", "12", "0"],
+                "y": ["0", "22", "22", "0", "0"],
+                "text": [],
+                "line": { "width": 0, "color": "#8e8e8e", "opacity": 1 },
+                "fill": "",
+                "name": "Границы"
+              },
+              {
+                "x": ["1", "1", "11", "11", 1],
+                "y": ["1", "21", "21", "1", 1],
+                "type": "scatter",
+                "text": [],
+                "mode": "lines",
+                "line": { "width": 1, "color": "#3e3e3e", "opacity": 1 },
+                "fill": "tonexty",
+                "fillcolor": "#8e8e8e",
+                "name": "Границы"
+              }
+            ],
+            "layout": {
+              "title": { "text": "Тетрис" },
+              "xaxis": {
+                "range": [0, 12],
+                "type": "linear",
+                "autorange": false,
+                "dtick": 1
+              },
+              "yaxis": {
+                "range": [0, 22],
+                "type": "linear",
+                "autorange": false,
+                "dtick": 1
+              },
+              "showlegend": false,
+              "staticPlot": true,
+              "height": 600,
+              "width": 400,
+              "margin": { "t": 0, "r": 0, "b": 0, "l": 0 }
+            },
+            "config": { "staticPlot": true },
+            "plotlyId": "plot13",
+            "name": "tetris_field",
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 49,
+              "y": 201,
+              "w": 400,
+              "h": 600
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": []
+          }
+        },
+        {
+          "id": 17,
+          "type": "button",
+          "attributes": {
+            "name": "<--",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 500,
+              "y": 200,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn", "rounded-0"]
+          }
+        },
+        {
+          "id": 18,
+          "type": "button",
+          "attributes": {
+            "name": "Вниз",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 600,
+              "y": 200,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary", "rounded-0"]
+          }
+        },
+        {
+          "id": 19,
+          "type": "button",
+          "attributes": {
+            "name": "-->",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 700,
+              "y": 200,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn", "rounded-0"]
+          }
+        },
+        {
+          "id": 20,
+          "type": "button",
+          "attributes": {
+            "name": "По часовой",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 500,
+              "y": 300,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-primary", "rounded-0"]
+          }
+        },
+        {
+          "id": 21,
+          "type": "button",
+          "attributes": {
+            "name": "Против часовой",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 600,
+              "y": 300,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn-primary", "btn", "rounded-0"]
+          }
+        },
+        {
+          "id": 22,
+          "type": "button",
+          "attributes": {
+            "name": "СТОП",
+            "functionNumber": 0,
+            "positions": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "x": 700,
+              "y": 300,
+              "w": 100,
+              "h": 100
+            },
+            "style": { "mb": 0, "mr": 0, "mt": 0, "ml": 0 },
+            "class": ["btn", "btn-danger", "rounded-0"]
+          }
+        }
+      ],
+      "last_id": 33,
+      "canvas": { "w": 900, "h": 1000 }
+    },
+    "code": {
+      "functions": [
+        {
+          "functionCode": "    rowDeleted = []\n    #Проверка поля, есть ли заполненные строки\n    #Если больше не падает\n    if ourFigure[\"x\"] != []: \n       minyFigure = min(ourFigure[\"y\"])\n       maxyFigure = max(ourFigure[\"y\"])\n       minxFigure = min(ourFigure[\"x\"])\n       maxxFigure = max(ourFigure[\"x\"])\n       index = minxFigure\n       \n       while index < maxxFigure:\n          \n          if (field[21+1 - minyFigure][index] == 1 and field[21+1 - minyFigure-1][index] != 0) or field[21 - minyFigure+1][index] == -1:\n             figureEnd = True\n             break \n          index = index + 1\n       if figureEnd == True:\n              #Проверка поля, есть ли заполненные строки\n         for index in range(0, len(field)):\n            counter = 0\n            for index1 in range(0, len(field[index])):\n               if field[index][index1] == 1:\n                  counter = counter + 1\n            if counter == 10:\n               rowDeleted.append(21-index)\n         if len(rowDeleted) == 1:\n            score = score + 100\n         if len(rowDeleted) == 2:\n            score = score + 300\n         if len(rowDeleted) == 3:\n            score = score + 700\n         if len(rowDeleted) == 4:\n            score = score + 1500\n         if len(rowDeleted) > 0:\n            for row_index in range(0, len(rowDeleted)):\n               index1 = 0\n               for index1 in range(0, len(allOurFigures)):\n                  index2 = 0\n                  while index2 < len(allOurFigures[index1][\"x\"]):  \n                     index3=0\n                     doDelete=0\n                     while index3 < len(allOurFigures[index1][\"x\"]):\n                        # ЕСЛИ ЕСТЬ ТОЧКА ПОД РАССМАТРИВАЕМОЙ ТОЧКОЙ\n                        if allOurFigures[index1][\"x\"][index3] == allOurFigures[index1][\"x\"][index2] and allOurFigures[index1][\"y\"][index3] < allOurFigures[index1][\"y\"][index2] and index3 != index2 and allOurFigures[index1][\"y\"][index2]==rowDeleted[row_index]:\n                           #print(\"YES\", allOurFigures[index1][\"x\"][index2], allOurFigures[index1][\"y\"][index2], allOurFigures[index1][\"x\"][index3], allOurFigures[index1][\"y\"][index3])\n                           doDelete=2\n                           break        \n                        index3 = index3+1  \n                     # ЕСЛИ НЕТ ТОЧКИ, ТО ТОЧКА НАХОДИТСЯ НА САМОЙ ЛИНИИ ДЛЯ УДАЛЕНИЯ\n                     if allOurFigures[index1][\"y\"][index2]==rowDeleted[row_index] and doDelete == 0:\n                        doDelete = 1\n                        #print(\"NO\", allOurFigures[index1][\"x\"][index2], allOurFigures[index1][\"y\"][index2],)\n                     if allOurFigures[index1][\"y\"][index2] > rowDeleted[row_index] or doDelete==1:   \n                         allOurFigures[index1][\"y\"][index2] = allOurFigures[index1][\"y\"][index2]-1\n                         if allOurFigures[index1][\"y\"][index2] == 0 or allOurFigures[index1][\"y\"][index2] < rowDeleted[row_index]:\n                            del allOurFigures[index1][\"y\"][index2]\n                            del allOurFigures[index1][\"x\"][index2]\n                            index2 = index2-1\n                         index3=0\n                         while index3 < len(allOurFigures[index1][\"x\"]):\n                           #print(index3, index2)\n                           if allOurFigures[index1][\"x\"][index3] == allOurFigures[index1][\"x\"][index2] and allOurFigures[index1][\"y\"][index3] == allOurFigures[index1][\"y\"][index2] and index3 != index2:\n                              del allOurFigures[index1][\"y\"][index2]\n                              del allOurFigures[index1][\"x\"][index2]\n                              index3=index3-1\n                              #print(\"aaaaa\")\n                              if index2 > 0:\n                                 index2=index2-1\n                              break\n                           index3 = index3+1 \n                     index2 = index2+1 \n               field.pop(21-rowDeleted[row_index])\n               field.insert(1, [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1])\n         #удаление фигур из allOurFigures, если они полностью пустые. Или же добавление координат, чтобы сделать замкнутой.\n         index1 = 0\n         while index1 < len(allOurFigures):\n            if allOurFigures[index1][\"y\"].count(1) == len(allOurFigures[index1][\"y\"]) or len(allOurFigures[index1][\"x\"]) == 0:\n               allOurFigures.pop(index1)\n               index1 = index1-1\n            index1 = index1+1\n         index1 = 0\n         while index1 < len(allOurFigures):\n            if allOurFigures[index1][\"x\"][0] != allOurFigures[index1][\"x\"][-1]:\n              arrayY = allOurFigures[index1][\"y\"]\n              arrayX = allOurFigures[index1][\"x\"] \n              arrayY.insert(0, 1)\n              arrayX.insert(0, arrayX[0])\n              arrayY.append(1)\n              arrayX.append(arrayX[-1])\n              arrayY.append(1)\n              arrayX.append(arrayX[0])\n              #print(type(arrayY))\n            index1 = index1+1\n       if figureEnd == True:\n          figureEnd = False\n          for index in range(0, len(ourFigure[\"y\"])):\n             if allBordersY[ourFigure[\"x\"][index]] < ourFigure[\"y\"][index]:\n                allBordersY[ourFigure[\"x\"][index]] = ourFigure[\"y\"][index]\n          figureRotate = 0\n          newFigure = True\n    #Иначе новая фигура\n    else:\n      newFigure = True\n    \n    previousFigure[\"x\"]=ourFigure[\"x\"][:]\n    previousFigure[\"y\"]=ourFigure[\"y\"][:]\n    previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n\n    \n    #Если нужна новая фигура\n    if newFigure == True:\n        numberOfFigure = random.randint(1, 6)\n        #numberOfFigure = 2\n        numberOfColor = random.randint(1, 7)\n        randomX = random.randint(1, 10)\n        ourFigure = {}\n        ourFigure[\"x\"] = allRandomFigures[0][numberOfFigure-1][\"x\"][:]\n        ourFigure[\"y\"] = allRandomFigures[0][numberOfFigure-1][\"y\"][:]\n        ourFigure[\"fillcolor\"] = colors[numberOfColor-1][\"fillcolor\"][:]\n\n        for index in range(0, len(ourFigure[\"y\"])):\n           ourFigure[\"y\"][index] = ourFigure[\"y\"][index]+20\n           ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+randomX\n        whileY = False\n        whileX = False\n        \n        while whileY == False or whileX == False:\n           maxY = max(ourFigure[\"y\"])\n           maxX = max(ourFigure[\"x\"])\n           if maxY <= 20:\n              whileY = True\n           else:\n              for index in range(0, len(ourFigure[\"y\"])):\n                 ourFigure[\"y\"][index] = ourFigure[\"y\"][index]-1\n           if maxX <= 10:\n              whileX = True\n           else:\n              for index in range(0, len(ourFigure[\"x\"])):\n                 ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-1\n                 \n        minyFigure = min(ourFigure[\"y\"])\n        maxyFigure = max(ourFigure[\"y\"])\n        minxFigure = min(ourFigure[\"x\"])\n        maxxFigure = max(ourFigure[\"x\"])\n        index = minxFigure\n        while index < maxxFigure:\n          if field[21 - minyFigure][index] == 1:\n             gameEnd = True\n             break \n          index = index + 1    \n        newFigure = False\n        allOurFigures.append(ourFigure)\n    #Иначе фигура двигается дальше  \n    else:\n    #Старая фигура\n      fieldPreviousfigure()\n      for index in range(0, len(ourFigure[\"y\"])):\n         ourFigure[\"y\"][index] = ourFigure[\"y\"][index]-1\n    #Обновление поля после того, как фигура двинулась\n    \n    #Новая фигура\n    fieldfigure()\n    #for index in range(0, len(field)):\n      #print(field[index])\n   \n    #Окончена ли игра\n    if gameEnd == True:\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"Игра окончена\"\n       json_answer = json.dumps(answer)\n       print(json_answer)\n       break\n    ",
+          "jsonInput": "",
+          "jsonOutput": "",
+          "name": "StartGame",
+          "control": "",
+          "value": "",
+          "inputs": [],
+          "outputs": [{ "name": "tetris_graph" }],
+          "period": true,
+          "periodsec": 1000,
+          "commands": [
+            {
+              "name": "left",
+              "button": 17,
+              "commandName": "",
+              "commandCode": "       previousFigure[\"x\"]=ourFigure[\"x\"][:]\n       previousFigure[\"y\"]=ourFigure[\"y\"][:]\n       previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n       doMove = True\n       for index in range(0, len(ourFigure[\"x\"])):\n          if ourFigure[\"x\"][index]-1 == 0:\n             doMove = False\n       if doMove == True:\n         for index in range(0, len(ourFigure[\"x\"])):\n            ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-1\n       fieldPreviousfigure()\n       fieldfigure()\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            },
+            {
+              "name": "right",
+              "button": 19,
+              "commandName": "",
+              "commandCode": "       previousFigure[\"x\"]=ourFigure[\"x\"][:]\n       previousFigure[\"y\"]=ourFigure[\"y\"][:]\n       previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n       doMove = True\n       for index in range(0, len(ourFigure[\"x\"])):\n          if ourFigure[\"x\"][index]+1 == 12:\n             doMove = False\n             break\n       if doMove == True:\n         for index in range(0, len(ourFigure[\"x\"])):\n            ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+1\n       fieldPreviousfigure()\n       fieldfigure()\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            },
+            {
+              "name": "down",
+              "button": 18,
+              "commandName": "",
+              "commandCode": "       previousFigure[\"x\"]=ourFigure[\"x\"][:]\n       previousFigure[\"y\"]=ourFigure[\"y\"][:]\n       previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n       doMove = True\n       minyFigure = min(ourFigure[\"y\"])\n       maxyFigure = max(ourFigure[\"y\"])\n       minxFigure = min(ourFigure[\"x\"])\n       maxxFigure = max(ourFigure[\"x\"])\n       index = minxFigure\n       while index < maxxFigure:\n          if field[21 - minyFigure+1][index] == 1 or field[21 - minyFigure+1][index] == -1:\n             doMove = False\n             break \n          index = index + 1\n       if doMove == True:\n         for index in range(0, len(ourFigure[\"x\"])):\n            ourFigure[\"y\"][index] = ourFigure[\"y\"][index]-1\n       #Старая фигура\n       fieldPreviousfigure()\n       fieldfigure()\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            },
+            {
+              "name": "clockwise",
+              "button": 20,
+              "commandName": "",
+              "commandCode": "      #Старая фигура\n       previousFigure[\"x\"]=ourFigure[\"x\"][:]\n       previousFigure[\"y\"]=ourFigure[\"y\"][:]\n       previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n       #doMove = True\n       previousRotate = figureRotate\n       if figureRotate==3:\n          figureRotate = 0\n       else:\n          figureRotate = figureRotate+1\n       for index in range(0, len(ourFigure[\"x\"])):\n          #print(allRandomFigures[previousRotate][numberOfFigure][\"x\"][index])\n          ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-allRandomFigures[previousRotate][numberOfFigure-1][\"x\"][index]\n          ourFigure[\"y\"][index] = ourFigure[\"y\"][index]-allRandomFigures[previousRotate][numberOfFigure-1][\"y\"][index]\n       for index in range(0, len(ourFigure[\"x\"])):\n          ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+allRandomFigures[figureRotate][numberOfFigure-1][\"x\"][index]\n          ourFigure[\"y\"][index] = ourFigure[\"y\"][index]+allRandomFigures[figureRotate][numberOfFigure-1][\"y\"][index]\n       if min(ourFigure[\"x\"]) < 1:     \n         while min(ourFigure[\"x\"]) < 1:\n            for index in range(0, len(ourFigure[\"x\"])):\n               ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+1       \n       if max(ourFigure[\"x\"]) > 11:\n         while max(ourFigure[\"x\"]) > 11:\n            for index in range(0, len(ourFigure[\"x\"])):\n               ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-1\n       fieldPreviousfigure()\n       fieldfigure()\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            },
+            {
+              "name": "counterclockwise",
+              "button": 21,
+              "commandName": "",
+              "commandCode": "       previousFigure[\"x\"]=ourFigure[\"x\"][:]\n       previousFigure[\"y\"]=ourFigure[\"y\"][:]\n       previousFigure[\"fillcolor\"]=ourFigure[\"fillcolor\"][:]\n       #doMove = True\n       previousRotate = figureRotate\n       if figureRotate==0:\n          figureRotate = 3\n       else:\n          figureRotate = figureRotate-1\n       for index in range(0, len(ourFigure[\"x\"])):\n          #print(allRandomFigures[previousRotate][numberOfFigure][\"x\"][index])\n          ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-allRandomFigures[previousRotate][numberOfFigure-1][\"x\"][index]\n          ourFigure[\"y\"][index] = ourFigure[\"y\"][index]-allRandomFigures[previousRotate][numberOfFigure-1][\"y\"][index]\n       for index in range(0, len(ourFigure[\"x\"])):\n          ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+allRandomFigures[figureRotate][numberOfFigure-1][\"x\"][index]\n          ourFigure[\"y\"][index] = ourFigure[\"y\"][index]+allRandomFigures[figureRotate][numberOfFigure-1][\"y\"][index]\n       if min(ourFigure[\"x\"]) < 1:\n         while min(ourFigure[\"x\"]) < 1:\n            for index in range(0, len(ourFigure[\"x\"])):\n               ourFigure[\"x\"][index] = ourFigure[\"x\"][index]+1       \n       if max(ourFigure[\"x\"]) > 11:\n         while max(ourFigure[\"x\"]) > 11:\n            for index in range(0, len(ourFigure[\"x\"])):\n               ourFigure[\"x\"][index] = ourFigure[\"x\"][index]-1\n       fieldPreviousfigure()\n       fieldfigure()\n       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            },
+            {
+              "name": "stop",
+              "button": 22,
+              "commandName": "",
+              "commandCode": "       print(\"ALL END\")     \n       break    ",
+              "inputs": []
+            },
+            {
+              "name": "None",
+              "button": 6,
+              "commandName": "",
+              "commandCode": "       answer[\"tetris_graph\"] = allOurFigures\n       answer[\"score\"] = score\n       answer[\"status\"] = \"\"",
+              "inputs": []
+            }
+          ],
+          "stopPeriod": true,
+          "inputCode": "scores = [100, 300, 700, 1500]\n\nscore = 0\n\nfieldSize=21\n\"\"\"\nourFigure = {\n   \"x\": [],\n   \"y\": [],\n   \"fillcolor\": [],\n}\"\"\"\n\nourFigure = {\n\"x\": [9,9,11,11,9], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",\n}\n\npreviousFigure = {\n   \"x\": [],\n   \"y\": [],\n   \"fillcolor\": \"\",\n   #\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0], \"fillcolor\": \"#123456\",\n   #\"x\": [1], \"y\": [1], \"fillcolor\": \"#123456\",\n}\n\nallBordersY = [-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1]\n\nallOurFigures = [\n   #{\"x\": [1,1,3,3,1], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",}, \n   #{\"x\": [3,3,5,5,3], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",}, \n   #{\"x\": [5,5,7,7,5], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",},\n   #{\"x\": [7,7,9,9,7], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",}, \n   #{\"x\": [9,9,10,10,9], \"y\": [1,5,5,1,1], \"fillcolor\": \"#123456\",},\n   #{\"x\": [10,10,11,11,10], \"y\": [1,5,5,1,1], \"fillcolor\": \"#123456\",},\n   \n   #{\"x\": [1,1,3,3,1], \"y\": [1,3,3,1,1], \"fillcolor\": \"#123456\",}, \n]\n\nfield = [\n   [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #1\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #6\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #11\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #16\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,],\n]\n\n\"\"\"\nfield = [\n   [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #1\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #6\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #11\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1,], #16\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1,],\n   [-1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1,],\n   [-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1,],\n   [-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1,],\n   [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,],\n]\n\"\"\"\n\nrandomFigures = [\n   #0 градусов\n   {\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0]}, \n   {\"x\": [0,0,1,1,0], \"y\": [0,4,4,0,0]}, \n   {\"x\": [0,0,1,1,3,3,2,2,0], \"y\": [0,1,1,2,2,1,1,0,0]}, \n   {\"x\": [0,0,2,2,3,3,1,1,0], \"y\": [1,2,2,1,1,0,0,1,1]}, \n   {\"x\": [0,0,1,1,2,2,0], \"y\": [0,3,3,1,1,0,0]}, \n   {\"x\": [0,0,1,1,2,2,0], \"y\": [0,1,1,3,3,0,0]}, \n   {\"x\": [0,0,3,3,2,2,1,1,0], \"y\": [1,2,2,1,1,0,0,1,1]}\n]\n\nallRandomFigures = [\n   #0 градусов по часовой \n   [\n   {\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0]}, \n   {\"x\": [0,0,1,1,0], \"y\": [0,4,4,0,0]}, \n   {\"x\": [0,0,1,1,3,3,2,2,0], \"y\": [0,1,1,2,2,1,1,0,0]}, \n   {\"x\": [0,0,1,1,2,2,0], \"y\": [0,3,3,1,1,0,0]}, \n   {\"x\": [0,0,1,1,2,2,0], \"y\": [0,1,1,3,3,0,0]}, \n   {\"x\": [0,0,3,3,2,2,1,1,0], \"y\": [1,2,2,1,1,0,0,1,1]}\n    ],\n   #90 градусов по часовой \n   [   {\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0]}, \n   {\"x\": [0,0,1,1,0], \"y\": [0,4,4,0,0]}, \n   {\"x\": [0,1,1,2,2,1,1,0,0], \"y\": [3,3,2,2,0,0,1,1,3]}, \n   {\"x\": [0,0,3,3,1,1,0], \"y\": [0,2,2,1,1,0,0]}, \n   {\"x\": [0,0,1,1,3,3,0], \"y\": [0,2,2,1,1,0,0]}, \n   {\"x\": [0,0,1,1,2,2,1,1,0], \"y\": [1,2,2,3,3,0,0,1,1,]}\n   ],\n   #180 градусов по часовой \n   [   {\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0]}, \n   {\"x\": [0,0,1,1,0], \"y\": [0,4,4,0,0]}, \n   {\"x\": [0,0,2,2,3,3,1,1,0], \"y\": [1,2,2,1,1,0,0,1,1]}, \n   {\"x\": [0,0,2,2,1,1,0], \"y\": [2,3,3,0,0,2,2]}, \n   {\"x\": [0,0,2,2,1,1,0], \"y\": [0,3,3,2,2,0,0]}, \n   {\"x\": [0,0,1,1,2,2,3,3,0], \"y\": [0,1,1,2,2,1,1,0,0]}\n   ],\n   #270 градусов по часовой \n   [   {\"x\": [0,0,2,2,0], \"y\": [0,2,2,0,0]}, \n   {\"x\": [0,0,4,4,0], \"y\": [1,2,2,1,1]}, \n   {\"x\": [0,0,1,1,2,2,1,1,0], \"y\": [0,2,2,3,3,1,1,0,0]}, \n   {\"x\": [0,0,2,2,3,3,0], \"y\": [0,1,1,2,2,0,0]}, \n   {\"x\": [0,0,3,3,2,2,0], \"y\": [1,2,2,0,0,1,1]}, \n   {\"x\": [0,0,1,1,2,2,1,1,0], \"y\": [0,3,3,2,2,1,1,0,0]}\n   ],\n]\n\ncolors = [\n   {\"fillcolor\": \"#FF0000\"},  #red\n   {\"fillcolor\": \"#FFA500\"}, #orange\n   {\"fillcolor\": \"#FFFF00\"}, #yellow\n   {\"fillcolor\": \"#00FF00\"},  #green\n   {\"fillcolor\": \"#00FFFF\"}, #cyan\n   {\"fillcolor\": \"#0000CD\"},  #blue\n   {\"fillcolor\": \"#800080\"}  #purple\n]\n\ndef fieldPreviousfigure():\n    minY = min(previousFigure[\"y\"])\n    maxY= max(previousFigure[\"y\"])\n    lenY = maxY-minY\n    for index in range(0, len(previousFigure[\"x\"])-2):\n       \n       px1 = previousFigure[\"x\"][index]\n       px2 = previousFigure[\"x\"][index+1]\n       px3 = previousFigure[\"x\"][index+2]\n       py1 = previousFigure[\"y\"][index]\n       py2 = previousFigure[\"y\"][index+1]\n       py3 = previousFigure[\"y\"][index+2]\n       \n       px4=0\n       py4=0\n       canPlace = False\n       if px3 == px2:\n          px4 = px1\n       else:\n          px4 = px3\n       if py3 == py2:\n          py4 = py1\n       else:\n          py4 = py3 \n       #print([px1, py1],[px2, py2],[px3, py3],[px4, py4])\n       leny=abs(py1-py3)\n       miny=min([py1, py3])\n       lenx=abs(px1-px3)\n       minx=min([px1, px3])\n       for index1 in range(0, lenY+1):\n          arrayOfX = []\n          \n          for index2 in range(0, len(previousFigure[\"x\"])):\n             #print(\"b\", minY+index1, previousFigure[\"y\"][index2])\n             if minY+index1 == previousFigure[\"y\"][index2]:\n                arrayOfX.append(previousFigure[\"x\"][index2])\n          #print(\"a\", arrayOfX)\n          if arrayOfX != []:\n            minX = min(arrayOfX)\n            maxX = max(arrayOfX)\n            if py4 == minY+index1 and px4 <= maxX and px4 >= minX:\n               canPlace = True\n\n       if canPlace == True:\n         for index1 in range(0, leny):\n            for index2 in range(0, lenx):\n               #print(minx, index2, miny, index1)\n               field[21-miny-index1][minx+index2] = 0   \n\ndef fieldfigure():\n    minY = min(ourFigure[\"y\"])\n    maxY= max(ourFigure[\"y\"])\n    lenY = maxY-minY\n    #print(ourFigure)\n    for index in range(0, len(ourFigure[\"x\"])-2):\n       \n       px1 = ourFigure[\"x\"][index]\n       px2 = ourFigure[\"x\"][index+1]\n       px3 = ourFigure[\"x\"][index+2]\n       py1 = ourFigure[\"y\"][index]\n       py2 = ourFigure[\"y\"][index+1]\n       py3 = ourFigure[\"y\"][index+2]\n       \n       px4=0\n       py4=0\n       canPlace = False\n       if px3 == px2:\n          px4 = px1\n       else:\n          px4 = px3\n       if py3 == py2:\n          py4 = py1\n       else:\n          py4 = py3 \n       #print([px1, py1],[px2, py2],[px3, py3],[px4, py4])\n       leny=abs(py1-py3)\n       miny=min([py1, py3])\n       lenx=abs(px1-px3)\n       minx=min([px1, px3])\n       for index1 in range(0, lenY+1):\n          arrayOfX = []\n          \n          for index2 in range(0, len(ourFigure[\"x\"])):\n             #print(\"b\", minY+index1, ourFigure[\"y\"][index2])\n             if minY+index1 == ourFigure[\"y\"][index2]:\n                arrayOfX.append(ourFigure[\"x\"][index2])\n          #print(\"a\", arrayOfX)\n          if arrayOfX != []:\n            minX = min(arrayOfX)\n            maxX = max(arrayOfX)\n            if py4 == minY+index1 and px4 <= maxX and px4 >= minX:\n               canPlace = True\n\n       if canPlace == True:\n         #print(\"here\")\n         for index1 in range(0, leny):\n            for index2 in range(0, lenx):\n               #print(minx, index2, miny, index1)\n               field[21-miny-index1][minx+index2] = 1\n\n\nnewFigure = True\nfigureEnd = False\ngameEnd = False\nnumberOfFigure = 0\nnumberOfColor = 0\nfigureRotate = 0\n"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "functions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+            "functionCode": {
+                "type": "string"
+            },
+            "jsonInput": {
+                "type": "string"
+            },
+            "jsonOutput": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "control": {
+                
+            },
+            "period": {
+                "type": "boolean"
+            },
+            "periodsec": {
+                "type": "number"
+            },
+            "commands": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "button": {
+                            "type": "number"
+                        },
+                        "commandName": {
+                            "type": "string"
+                        },
+                        "commandCode": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "inputs": {
+                            "type": "array",
+                            "items": 
+                            {
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": ["commandName", "commandCode", "inputs", "name"]
+                }
+            }
+          },
+          "required": [
+            "functionCode", "jsonInput", "jsonOutput", "name", "control"
+          ]
+        }
+      }
+    }
+  }
