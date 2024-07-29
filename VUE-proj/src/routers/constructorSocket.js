@@ -25,15 +25,20 @@ function SocketConstructor(socket) {
     let command = "None";
     //input = { index: 0 };
     let index = 0;
-    let options = {
-      args: [code, JSON.stringify(input)],
-    };
-    console.log(options);
-    /*
-    let pyshell = new PythonShell(
-      "./src/routers/translator/socket_test.py",
-      options
-    );*/
+    let options = {}
+    if(process.env.VITE_PYTHON_MODE === "py") {
+      options = {
+        args: [code, JSON.stringify(input)],
+        pythonPath: "py"
+      };
+    }
+    else{
+      options = {
+        args: [code, JSON.stringify(input)],
+      };
+    }
+
+    //console.log(options);
 
     let pyshell = new PythonShell(
       "./src/routers/translator/translator_stream.py",
